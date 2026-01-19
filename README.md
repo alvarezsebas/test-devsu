@@ -1,59 +1,106 @@
-# TestDevsu
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+# Proyecto CRUD de Productos – Angular 19 -  Test Devsu
 
-## Development server
+Este proyecto corresponde a un **CRUD de productos** desarrollado en **Angular 19**, utilizando **componentes standalone**, **Reactive Forms**, validaciones personalizadas y **pruebas unitarias con Jest** como parte del test para el puesto de desarrollador frontend para la empresa devsu
 
-To start a local development server, run:
+---
+
+## 📦 Requisitos previos
+
+Asegúrate de tener instalado:
+
+- **Node.js** v18 o superior
+- **Angular CLI** v19
+- **npm** v9 o superior
+
+Para verificar:
+
+```bash
+node -v
+npm -v
+ng version
+```
+
+---
+
+## 🚀 Instalación del proyecto
+
+1. Clona el repositorio o descarga el proyecto
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+---
+
+## ▶️ Ejecución del proyecto
+
+Para iniciar la aplicación:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La aplicación estará disponible en:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+## 🔗 Backend
+
+La aplicación consume un backend REST el cual es suministrado por la empresa para realizar su test y estara disponible en:
+
+```
+http://localhost:3002/bp
 ```
 
-## Building
+⚠️ Asegúrate de que el backend esté levantado antes de usar la aplicación.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🧪 Pruebas unitarias (Jest)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Este proyecto utiliza **Jest** como framework de pruebas unitarias.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Ejecutar todas las pruebas
 
 ```bash
-ng test
+npm run test
 ```
 
-## Running end-to-end tests
+El reporte se genera en:
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+```
+coverage/
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 🧪 Elementos testeados
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Se incluyen pruebas unitarias para:
+
+- ✅ Servicios (`ProductService`)
+- ✅ Componentes con lógica:
+  - Listado de productos
+  - Formulario de productos
+- ✅ Validadores personalizados:
+  - Fecha de lanzamiento
+  - Fecha de revisión (+1 año)
+- ❌ Componentes puramente presentacionales (no testeados)
+
+### Criterio aplicado
+> Solo se prueban componentes y servicios con lógica de negocio para evitar tests redundantes.
+
+---
+
+
+---
+
+## 👨‍💻 Autor
+
+Proyecto desarrollado por Sebastian Alvarez Lopera como actividad técnica para la aplicación de puesto desarrolador frontend.

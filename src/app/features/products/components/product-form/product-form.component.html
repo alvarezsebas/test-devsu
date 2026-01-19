@@ -1,0 +1,95 @@
+<form [formGroup]="form" class="form">
+  <div class="row">
+    <div>
+      <label>ID</label>
+      <input formControlName="id" />
+
+      <small *ngIf="form.controls['id'].touched && form.controls['id'].errors">
+        <span *ngIf="form.controls['id'].errors?.['required']"
+          >Obligatorio</span
+        >
+        <span *ngIf="form.controls['id'].errors?.['minlength']">Mín. 3</span>
+        <span *ngIf="form.controls['id'].errors?.['maxlength']">Máx. 10</span>
+        <span *ngIf="form.controls['id'].errors?.['idExists']"
+          >ID ya existe</span
+        >
+      </small>
+    </div>
+
+    <div>
+      <label>Nombre</label>
+      <input formControlName="name" />
+      <small
+        *ngIf="form.controls['name'].touched && form.controls['name'].errors"
+      >
+        <span *ngIf="form.controls['name'].errors?.['required']"
+          >Obligatorio</span
+        >
+      </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label>Descripción</label>
+      <textarea formControlName="description"></textarea>
+       <small
+        *ngIf="form.controls['description'].touched && form.controls['description'].errors"
+      >
+        <span *ngIf="form.controls['description'].errors?.['required']"
+          >Obligatorio</span
+        >
+      </small>
+    </div>
+
+    <div>
+      <label>Logo (URL)</label>
+      <input formControlName="logo" />
+       <small
+        *ngIf="form.controls['logo'].touched && form.controls['logo'].errors"
+      >
+        <span *ngIf="form.controls['logo'].errors?.['required']"
+          >Obligatorio</span
+        >
+      </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label>Fecha Liberación</label>
+      <input type="date" formControlName="date_release" />
+      <small
+        class="error"
+        *ngIf="
+          form.controls['date_release'].touched &&
+          form.controls['date_release'].errors
+        "
+      >
+        <span *ngIf="form.controls['date_release'].errors?.['required']">
+          La fecha es obligatoria
+        </span>
+
+        <span
+          *ngIf="form.controls['date_release'].errors?.['releaseDateInvalid']"
+        >
+          La fecha de liberación no puede ser anterior a la fecha actual
+        </span>
+      </small>
+    </div>
+
+    <div>
+      <label>Fecha Revisión</label>
+      <input type="date" formControlName="date_revision" />
+
+      <small *ngIf="form.controls['date_revision']?.errors">
+        Fecha debe ser +1 año exacto
+      </small>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button type="button" (click)="reset()">Reiniciar</button>
+    <button type="button" (click)="submit()">Agregar</button>
+  </div>
+</form>

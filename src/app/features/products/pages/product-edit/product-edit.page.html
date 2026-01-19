@@ -1,0 +1,21 @@
+<section *ngIf="loading">Cargando...</section>
+
+<section class="container" *ngIf="!loading && !error">
+  <h2>Editar Producto</h2>
+
+  <app-product-form
+    [product]="product"
+    [disableId]="true"
+    (submitForm)="onSubmit($event)"
+  ></app-product-form>
+</section>
+
+<p class="error" *ngIf="error">{{ error }}</p>
+
+<app-modal-alert  [visible]="showModal"
+  title="Producto creado"
+  message="El producto se edito correctamente."
+  buttonText="OK"
+  (confirm)="goToList()">>
+  
+</app-modal-alert>

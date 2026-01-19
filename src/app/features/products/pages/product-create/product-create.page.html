@@ -1,0 +1,17 @@
+<section class="container">
+  <h2>Formulario de Registro</h2>
+
+  <app-product-form
+    (submitForm)="onSubmit($event)"
+  ></app-product-form>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+</section>
+
+<app-modal-alert  [visible]="showModal"
+  title="Producto creado"
+  message="El producto se creó correctamente."
+  buttonText="OK"
+  (confirm)="goToList()">>
+  
+</app-modal-alert>

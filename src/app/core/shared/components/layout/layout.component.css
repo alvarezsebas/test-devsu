@@ -1,0 +1,23 @@
+.header {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-icon {
+  width: 22px;
+  height: 22px;
+}
+.header-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #1e3a8a;
+}

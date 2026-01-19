@@ -1,0 +1,8 @@
+<div class="menu">
+  <button (click)="toggle()">⋮</button>
+
+  <ul *ngIf="open">
+    <li (click)="onEdit()">Editar</li>
+    <li class="danger" (click)="onDelete()">Eliminar</li>
+  </ul>
+</div>

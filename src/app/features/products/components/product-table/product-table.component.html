@@ -1,0 +1,55 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Fecha liberación</th>
+        <th>Fecha revisión</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let product of products" class="card-row">
+        <td data-label="Logo">
+          <img [src]="product.logo" class="logo-img" />
+        </td>
+
+        <td data-label="Nombre">
+          {{ product.name }}
+        </td>
+
+        <td data-label="Descripción">
+          {{ product.description }}
+        </td>
+
+        <td data-label="Fecha liberación">
+          {{ product.date_release }}
+        </td>
+
+        <td data-label="Fecha revisión">
+          {{ product.date_revision }}
+        </td>
+
+        <td class="actions">
+          <app-product-menu
+            (edit)="edit(product.id)"
+            (delete)="askDelete(product)">
+          </app-product-menu>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<app-modal
+  [visible]="showDeleteModal"
+  title="Eliminar producto"
+  [productName]="selectedName!"
+  (confirm)="confirmDelete()"
+  (cancel)="showDeleteModal = false">
+</app-modal>
+

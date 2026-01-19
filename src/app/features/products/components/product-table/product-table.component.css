@@ -1,0 +1,104 @@
+.table-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: #f9fafb;
+}
+
+thead th {
+  padding: 14px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e5e7eb;
+}
+
+.actions {
+  text-align: right;
+  width: 40px;
+}
+
+@media (max-width: 640px) {
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    position: relative;
+  }
+
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    padding: 8px 0;
+    font-size: 14px;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #6b7280;
+  }
+
+  tbody td[data-label="Logo"] {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  tbody td[data-label="Logo"]::before {
+    display: none;
+  }
+
+  /* 🔥 ACCIONES A LA DERECHA */
+  .actions {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 0;
+    width: auto;
+  }
+
+  .actions::before {
+    display: none;
+  }
+}

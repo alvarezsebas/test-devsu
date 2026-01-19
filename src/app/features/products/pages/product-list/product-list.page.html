@@ -1,0 +1,45 @@
+<section class="container">
+  <div class="toolbar">
+    <input
+      type="text"
+      placeholder="Buscar..."
+      #searchInput
+      (input)="onSearch(searchInput.value)"
+      class="search"
+    />
+
+    <button class="btn-add" (click)="goToCreate()">Agregar</button>
+  </div>
+
+  <app-skeleton *ngIf="loading"></app-skeleton>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <app-product-table
+    *ngIf="!loading && !error"
+    [products]="filtered"
+    (delete)="onDelete($event)">
+  ></app-product-table>
+
+  <footer class="footer">
+    <span>{{ filtered.length }} Resultados</span>
+
+    <select
+      #pageSizeSelect
+      [value]="pageSize"
+      (change)="onPageSizeChange(+pageSizeSelect.value)"
+    >
+      <option [value]="5">5</option>
+      <option [value]="10">10</option>
+      <option [value]="20">20</option>
+    </select>
+  </footer>
+</section>
+
+<app-modal-alert  [visible]="showModal"
+  title="Producto eliminado"
+  message="El producto se elimino correctamente."
+  buttonText="OK"
+  (confirm)="goToList()">>
+  
+</app-modal-alert>
